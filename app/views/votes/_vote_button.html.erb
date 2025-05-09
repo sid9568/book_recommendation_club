@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% if current_user.votes.exists?(recommendation: recommendation) %>
+    <%= button_to "Remove Vote", recommendation_vote_path(recommendation, recommendation.votes.find_by(user: current_user)), method: :delete, class: "text-red-500 hover:text-red-700 focus:outline-none focus:text-red-700" %>
+  <% else %>
+    <%= button_to "Vote", recommendation_votes_path(recommendation), method: :post, class: "text-green-500 hover:text-green-700 focus:outline-none focus:text-green-700" %>
+  <% end %>
+<% end %>

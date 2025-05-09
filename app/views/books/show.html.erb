@@ -27,7 +27,11 @@
           <span class="text-gray-500 text-sm">
             Recommended by <%= recommendation.user.email %> |
             <%= recommendation.created_at.strftime('%Y-%m-%d') %> |
+            <%= recommendation.vote_count %> votes
           </span>
+          <% if user_signed_in? %>
+            <%= render 'votes/vote_button', recommendation: recommendation %>
+          <% end %>
         </div>
       </div>
     <% end %>

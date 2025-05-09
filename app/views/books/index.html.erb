@@ -1,7 +1,7 @@
 <div class="container mx-auto mt-8">
   <h1 class="text-2xl font-bold mb-4">Book Recommendations</h1>
 
-  <% if !user_signed_in? %>
+  <% if user_signed_in? %>
     <%= link_to 'Add New Book', new_book_path, class: 'btn btn-primary mb-4 inline-block' %>
   <% end %>
 
@@ -10,7 +10,6 @@
     <% @books.each do |book| %>
       <a href="<%= book_path(book) %>" class="cursor-pointer">
         <div class="bg-white shadow-md rounded-lg overflow-hidden flex h-64">
-          <!-- Left side: image -->
           <div class="w-1/2 relative">
             <% if book.image_url.present? %>
               <img src="<%= book.image_url %>" alt="<%= book.title %> cover" class="w-full h-full object-cover">
