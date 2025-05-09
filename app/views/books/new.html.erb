@@ -1,4 +1,39 @@
-<div>
-  <h1 class="font-bold text-4xl">Books#new</h1>
-  <p>Find me in app/views/books/new.html.erb</p>
+<div class="w-full mx-auto mt-12 px-4" style="width: 700px;">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">📚 Add a New Book</h1>
+
+  <%= form_with model: @book, local: true, class: 'bg-white shadow-md rounded-lg p-8 space-y-6' do |form| %>
+
+    <% if @book.errors.any? %>
+      <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded-md">
+        <div class="font-semibold mb-1">
+          <%= pluralize(@book.errors.count, "error") %> prevented this book from being saved:
+        </div>
+        <ul class="list-disc list-inside text-sm">
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :title, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :title, placeholder: "Enter book title", class: 'mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
+    </div>
+
+    <div>
+      <%= form.label :author, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :author, placeholder: "Enter author's name", class: 'mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
+    </div>
+
+    <div>
+      <%= form.label :image_url, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :image_url, placeholder: "https://example.com/image.jpg", class: 'mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
+    </div>
+
+    <div class="pt-4">
+      <%= form.submit 'Add Book', class: 'w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>
+    </div>
+
+  <% end %>
 </div>

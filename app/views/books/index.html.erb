@@ -1,4 +1,36 @@
-<div>
-  <h1 class="font-bold text-4xl">Books#index</h1>
-  <p>Find me in app/views/books/index.html.erb</p>
+<div class="container mx-auto mt-8">
+  <h1 class="text-2xl font-bold mb-4">Book Recommendations</h1>
+
+  <% if !user_signed_in? %>
+    <%= link_to 'Add New Book', new_book_path, class: 'btn btn-primary mb-4 inline-block' %>
+  <% end %>
+
+  <h2 class="text-xl font-semibold mb-4">All Books</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <% @books.each do |book| %>
+      <a href="<%= book_path(book) %>" class="cursor-pointer">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden flex h-64">
+          <!-- Left side: image -->
+          <div class="w-1/2 relative">
+            <% if book.image_url.present? %>
+              <img src="<%= book.image_url %>" alt="<%= book.title %> cover" class="w-full h-full object-cover">
+            <% else %>
+              <div class="w-full h-full bg-gray-200 flex items-center justify-center">No Cover</div>
+            <% end %>
+
+            <!-- Overlayed text -->
+            <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white p-2">
+              <h3 class="font-semibold text-lg"><%= book.title %></h3>
+              <p class="text-sm">By <%= book.author %></p>
+            </div>
+          </div>
+
+          <!-- Right side: empty or use for more info later -->
+          <div class="w-1/2 p-4 flex items-center justify-center bg-gray-50">
+            <p class="text-gray-600 text-sm">Click to view more</p>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
 </div>

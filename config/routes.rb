@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'books#index'
-  get 'books/new'
-  get 'books/edit'
+  resources :books, only: [:index, :new, :create, :show]
+  
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
