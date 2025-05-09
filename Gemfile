@@ -71,4 +71,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
 gem 'devise'

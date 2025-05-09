@@ -84,3 +84,5 @@ production:
   database: book_recommendation_club_production
   username: book_recommendation_club
   password: <%= ENV["BOOK_RECOMMENDATION_CLUB_DATABASE_PASSWORD"] %>
+production:
+  url: <%= ENV['DATABASE_URL'] %>
