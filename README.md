@@ -1,24 +1,44 @@
-# README
+# Manage Income
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Manage Income is a lightweight Ruby on Rails application that helps you keep track of your personal finances. With a clean, responsive interface, it provides:
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Database Setup](#database-setup)
 
-* System dependencies
+## Getting Started
 
-* Configuration
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Database creation
+## Prerequisites
 
-* Database initialization
+- **Ruby version**: `3.1.2`
+- **Rails version**: `7.1.5`
+- **Database**: PostgreSQL
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone the repo:
+```bash
+ https://github.com/sid9568/manage_income.git
+```
+2. Step
+```bash
+ rails db:create
+```
+3. Step
+```bash
+ rails db:migrate
+```
+5. Step
+```bash
+ rails assets:precompile
+```
+6. Step
+```bash
+ rails s
+```
